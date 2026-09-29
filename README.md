@@ -56,7 +56,7 @@ A little organization can save a lot of questions at the end of the month.
 
 <div align="center">
 
-<img src="image/sc.png" alt="Meal Hisab Screenshot" width="850">
+<img src="image/sc_web.png" alt="Meal Hisab Screenshot" width="850">
 
 </div>
 
