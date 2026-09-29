@@ -35,3 +35,496 @@
     .bar {
       background: #fff;
       border-bottom: 4px solid var(--teal);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 2px 8px #00426922;
+    }
+
+    .bar .ttl {
+      font-weight: 800;
+      color: var(--navy);
+      font-size: 18px;
+    }
+
+    .bar .ttl span {
+      color: var(--teal);
+      font-weight: 600;
+      margin-left: 6px;
+    }
+
+    .back {
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .back:hover {
+      background: var(--teal);
+    }
+
+    /* ---------- Viewer ---------- */
+    .viewer {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 12px;
+      gap: 10px;
+    }
+
+    .stage {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+      background: #0b1d2a;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      touch-action: none;
+      user-select: none;
+      cursor: zoom-in;
+    }
+
+    .stage.zoomed {
+      cursor: grab;
+    }
+
+    .stage.dragging {
+      cursor: grabbing;
+    }
+
+    .stage img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transform-origin: center center;
+      will-change: transform;
+      -webkit-user-drag: none;
+    }
+
+    .loader {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 600;
+      text-align: center;
+      padding: 0 20px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .loader.hide {
+      display: none;
+    }
+
+    .spin {
+      width: 44px;
+      height: 44px;
+      border: 5px solid #ffffff33;
+      border-top-color: var(--teal);
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+
+    .loader.error .spin {
+      display: none;
+    }
+
+    .loader.error {
+      color: #ff9b9b;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      background: #ffffffdd;
+      color: var(--navy);
+      font-size: 22px;
+      font-weight: 700;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .nav:hover {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .nav.prev {
+      left: 12px;
+    }
+
+    .nav.next {
+      right: 12px;
+    }
+
+    .counter {
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      background: var(--navy);
+      color: #fff;
+      font-size: 13px;
+      padding: 3px 12px;
+      border-radius: 14px;
+      z-index: 2;
+    }
+
+    .tools {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      display: flex;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .tools button {
+      min-width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 10px;
+      background: #ffffffdd;
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0 10px;
+    }
+
+    .tools button:hover {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .zoomlvl {
+      align-self: center;
+      background: var(--navy);
+      color: #fff;
+      font-size: 13px;
+      padding: 3px 10px;
+      border-radius: 10px;
+    }
+
+    /* ---------- Caption & thumbnails ---------- */
+    .caption {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .thumbs {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .thumb {
+      width: 84px;
+      height: 62px;
+      border: 3px solid transparent;
+      border-radius: 8px;
+      overflow: hidden;
+      padding: 0;
+      background: #fff;
+      cursor: pointer;
+      box-shadow: 0 1px 4px #00426933;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb.active {
+      border-color: var(--teal);
+    }
+
+    .hint {
+      text-align: center;
+      font-size: 12px;
+      color: #555;
+    }
+
+    @media (max-width: 640px) {
+      .bar .ttl {
+        font-size: 15px;
+      }
+
+      .caption {
+        font-size: 17px;
+      }
+
+      .thumb {
+        width: 64px;
+        height: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bar">
+    <div class="ttl">হিসাবের ছবি </div>
+    <a class="back" href="index.html">← মিল হিসাব</a>
+  </div>
+
+  <div class="viewer">
+    <div class="stage" id="stage">
+      <div class="counter" id="counter"></div>
+      <button class="nav prev" id="prev" aria-label="আগের ছবি">&#10094;</button>
+      <button class="nav next" id="next" aria-label="পরের ছবি">&#10095;</button>
+      <div class="loader" id="loader">
+        <div class="spin"></div>
+        <span id="loadtxt">ছবি লোড হচ্ছে, অপেক্ষা করো...</span>
+      </div>
+      <img id="img" src="" alt="" draggable="false">
+      <div class="tools">
+        <span class="zoomlvl" id="zoomlvl">১০০%</span>
+        <button id="zout" aria-label="জুম আউট">−</button>
+        <button id="zin" aria-label="জুম ইন">+</button>
+        <button id="zreset" aria-label="রিসেট">⟲</button>
+      </div>
+    </div>
+
+    <div class="caption" id="caption"></div>
+    <div class="thumbs" id="thumbs"></div>
+    <div class="hint">জুম: মাউস হুইল / পিঞ্চ / ডবল ক্লিক <br> ছবি বদল: তীর চিহ্ন বা কীবোর্ডের ← →</div>
+  </div>
+
+  <script>
+    const photos = [
+      { src: 'image/meal.jpeg', title: 'মিল হিসাব' },
+      { src: 'image/tk.jpeg',   title: 'টাকা জমার হিসাব' },
+      { src: 'image/bj1.jpeg',  title: 'বাজার খরচ – পৃষ্ঠা ১ এর হিসাব' },
+      { src: 'image/bj2.jpeg',  title: 'বাজার খরচ – পৃষ্ঠা ২ এর হিসাব' }
+    ];
+
+    const MIN = 1;
+    const MAX = 6;
+    const bn = s => String(s).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+
+    const stage = document.getElementById('stage');
+    const img = document.getElementById('img');
+    const counter = document.getElementById('counter');
+    const caption = document.getElementById('caption');
+    const zoomlvl = document.getElementById('zoomlvl');
+    const thumbs = document.getElementById('thumbs');
+    const loader = document.getElementById('loader');
+    const loadtxt = document.getElementById('loadtxt');
+
+    let idx = 0;
+    let scale = 1;
+    let tx = 0;
+    let ty = 0;
+
+    /* ---------- Rendering ---------- */
+    function clamp() {
+      const maxX = Math.max(0, (img.offsetWidth * scale - stage.clientWidth) / 2);
+      const maxY = Math.max(0, (img.offsetHeight * scale - stage.clientHeight) / 2);
+      tx = Math.min(maxX, Math.max(-maxX, tx));
+      ty = Math.min(maxY, Math.max(-maxY, ty));
+    }
+
+    function apply() {
+      if (scale <= 1) {
+        tx = 0;
+        ty = 0;
+      }
+      clamp();
+      img.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+      zoomlvl.textContent = bn(Math.round(scale * 100)) + '%';
+      stage.classList.toggle('zoomed', scale > 1);
+    }
+
+    function setLoading(state) {
+      loader.classList.toggle('hide', state === 'done');
+      loader.classList.toggle('error', state === 'error');
+      loadtxt.textContent = state === 'error'
+        ? 'ছবি লোড করা যায়নি'
+        : 'ছবি লোড হচ্ছে, অপেক্ষা করো...';
+      img.style.visibility = state === 'done' ? 'visible' : 'hidden';
+    }
+
+    function show(i) {
+      idx = (i + photos.length) % photos.length;
+      scale = 1;
+      tx = 0;
+      ty = 0;
+      setLoading('loading');
+      img.src = photos[idx].src;
+      if (img.complete && img.naturalWidth > 0) setLoading('done');
+      img.alt = photos[idx].title;
+      counter.textContent = bn(idx + 1) + ' / ' + bn(photos.length);
+      caption.textContent = photos[idx].title;
+      [...thumbs.children].forEach((t, n) => t.classList.toggle('active', n === idx));
+      apply();
+    }
+
+    /* ---------- Zoom ---------- */
+    function zoomAt(newScale, cx, cy) {
+      newScale = Math.min(MAX, Math.max(MIN, newScale));
+      const r = stage.getBoundingClientRect();
+      const px = cx - (r.left + r.width / 2);
+      const py = cy - (r.top + r.height / 2);
+      const k = newScale / scale;
+      tx = px - (px - tx) * k;
+      ty = py - (py - ty) * k;
+      scale = newScale;
+      apply();
+    }
+
+    function zoomCenter(factor) {
+      const r = stage.getBoundingClientRect();
+      zoomAt(scale * factor, r.left + r.width / 2, r.top + r.height / 2);
+    }
+
+    /* ---------- Thumbnails ---------- */
+    photos.forEach((p, n) => {
+      const b = document.createElement('button');
+      b.className = 'thumb';
+      b.title = p.title;
+      b.innerHTML = `<img src="${p.src}" alt="${p.title}">`;
+      b.addEventListener('click', () => show(n));
+      thumbs.appendChild(b);
+    });
+
+    /* ---------- Buttons & keyboard ---------- */
+    document.getElementById('prev').addEventListener('click', () => show(idx - 1));
+    document.getElementById('next').addEventListener('click', () => show(idx + 1));
+    document.getElementById('zin').addEventListener('click', () => zoomCenter(1.4));
+    document.getElementById('zout').addEventListener('click', () => zoomCenter(1 / 1.4));
+    document.getElementById('zreset').addEventListener('click', () => {
+      scale = 1;
+      apply();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') show(idx - 1);
+      else if (e.key === 'ArrowRight') show(idx + 1);
+      else if (e.key === '+' || e.key === '=') zoomCenter(1.4);
+      else if (e.key === '-') zoomCenter(1 / 1.4);
+      else if (e.key === '0') {
+        scale = 1;
+        apply();
+      }
+    });
+
+    /* ---------- Wheel & double click ---------- */
+    stage.addEventListener('wheel', e => {
+      e.preventDefault();
+      zoomAt(scale * Math.exp(-e.deltaY * 0.0018), e.clientX, e.clientY);
+    }, { passive: false });
+
+    stage.addEventListener('dblclick', e => {
+      if (e.target.closest('button')) return;
+      if (scale > 1) {
+        scale = 1;
+        apply();
+      } else {
+        zoomAt(2.5, e.clientX, e.clientY);
+      }
+    });
+
+    /* ---------- Drag, pinch, swipe ---------- */
+    const pts = new Map();
+    let startDist = 0;
+    let startScale = 1;
+    let startX = 0;
+    let startY = 0;
+    let moved = false;
+
+    const dist = () => {
+      const [a, b] = [...pts.values()];
+      return Math.hypot(a.x - b.x, a.y - b.y);
+    };
+
+    stage.addEventListener('pointerdown', e => {
+      if (e.target.closest('button')) return;
+      stage.setPointerCapture(e.pointerId);
+      pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      moved = false;
+      if (pts.size === 2) {
+        startDist = dist();
+        startScale = scale;
+      }
+      startX = e.clientX;
+      startY = e.clientY;
+      if (scale > 1) stage.classList.add('dragging');
+    });
+
+    stage.addEventListener('pointermove', e => {
+      if (!pts.has(e.pointerId)) return;
+      const prev = pts.get(e.pointerId);
+      const cur = { x: e.clientX, y: e.clientY };
+      pts.set(e.pointerId, cur);
+
+      if (pts.size === 2) {
+        const [a, b] = [...pts.values()];
+        zoomAt(startScale * (dist() / startDist), (a.x + b.x) / 2, (a.y + b.y) / 2);
+        moved = true;
+      } else if (scale > 1) {
+        tx += cur.x - prev.x;
+        ty += cur.y - prev.y;
+        apply();
+        moved = true;
+      }
+    });
+
+    function endPointer(e) {
+      if (!pts.has(e.pointerId)) return;
+      pts.delete(e.pointerId);
+      stage.classList.remove('dragging');
+
+      /* swipe to change photo when not zoomed */
+      if (scale <= 1 && pts.size === 0 && !moved) {
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+          show(dx < 0 ? idx + 1 : idx - 1);
+        }
+      }
+    }
+
+    stage.addEventListener('pointerup', endPointer);
+    stage.addEventListener('pointercancel', endPointer);
+    window.addEventListener('resize', apply);
+    img.addEventListener('load', () => {
+      setLoading('done');
+      apply();
+    });
+    img.addEventListener('error', () => setLoading('error'));
+
+    show(0);
+  </script>
+</body>
+</html>
