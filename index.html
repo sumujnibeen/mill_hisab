@@ -35,3 +35,564 @@
       background: #fff;
       border-bottom: 6px solid var(--teal);
       border-radius: 14px;
+      padding: 22px 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 2px 10px #00426926;
+    }
+
+    header img {
+      height: 110px;
+      width: auto;
+      display: block;
+    }
+
+    .t {
+      text-align: center;
+    }
+
+    .t .l1 {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      line-height: 1.3;
+      color: var(--navy);
+    }
+
+    .t .l2 {
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--teal);
+      margin-top: 4px;
+    }
+
+    .t .l3 {
+      display: inline-block;
+      margin-top: 10px;
+      background: var(--navy);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+      padding: 5px 22px;
+      border-radius: 30px;
+    }
+
+    /* ---------- Cards ---------- */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .card {
+      background: #fff;
+      border-top: 4px solid var(--teal);
+      border-radius: 10px;
+      padding: 12px 18px;
+      box-shadow: 0 1px 5px #00426922;
+      text-align: center;
+      min-width: 150px;
+      flex: 1;
+    }
+
+    .card b {
+      display: block;
+      font-size: 22px;
+      color: var(--navy);
+      margin-top: 2px;
+    }
+
+    .card small {
+      color: #555;
+    }
+
+    /* ---------- Table ---------- */
+    .wrap {
+      overflow-x: auto;
+      border-radius: 10px;
+      box-shadow: 0 1px 5px #00426922;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background: #fff;
+    }
+
+    th,
+    td {
+      border: 1px solid #cfe6e8;
+      padding: 8px 10px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    th {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+
+    td.n {
+      text-align: left;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #effafa;
+    }
+
+    .get {
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+    .pay {
+      color: var(--red);
+      font-weight: bold;
+    }
+
+    /* Total row: dark background, white bold text for clear reading */
+    tfoot td {
+      background: var(--navy);
+      color: #fff;
+      font-weight: bold;
+      border-color: var(--navy);
+      border-top: 4px solid var(--teal);
+    }
+
+    tfoot td.get,
+    tfoot td.pay {
+      color: #fff;
+    }
+
+    .note {
+      text-align: center;
+      color: #555;
+      font-size: 13px;
+    }
+
+
+    .photo-line {
+      text-align: center;
+      font-size: 14px;
+      margin: -6px 0 0;
+    }
+
+    .photo-line a {
+      color: var(--teal);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px solid var(--teal);
+      padding-bottom: 1px;
+    }
+
+    .photo-line a:hover {
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 26px;
+    }
+
+    .sign {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      min-width: 270px;
+      box-shadow: 0 2px 8px #00426926;
+      border: 1px solid #cfe6e8;
+    }
+
+    .sign .role {
+      background: var(--navy);
+      color: #fff;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: .5px;
+      padding: 8px 16px;
+      border-bottom: 4px solid var(--teal);
+    }
+
+    .sign .info {
+      padding: 14px 20px;
+      text-align: center;
+      line-height: 1.75;
+      color: var(--navy);
+    }
+
+    .sign .nm {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--black);
+      margin-bottom: 2px;
+    }
+
+    .sign .info div:not(.nm) {
+      font-size: 14px;
+    }
+
+    @media (max-width: 640px) {
+      footer { justify-content: center; }
+      .t .l1 { font-size: 26px; }
+      .t .l2 { font-size: 16px; }
+      .t .l3 { font-size: 18px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <img src="image/kiu_logo.png" alt="লোগো" onerror="this.style.display='none'">
+      <div class="t">
+        <div class="l1">কিশোরগঞ্জ বিশ্ববিদ্যালয়</div>
+        <div class="l2">ছাত্র হলের ১ম ও ২য় তলার</div>
+        <div class="l3">সেপ্টেম্বর মাসের মিল হিসাব</div>
+      </div>
+    </header>
+
+    <div class="cards">
+      <div class="card">মোট খরচ<b>৫৬,৬৭৫</b></div>
+      <div class="card">মোট মিল<b>১,২২০.৫</b></div>
+      <div class="card">মিল রেট<b>৪৬.৪৩৫৯</b></div>
+      <div class="card">খালা চার্জ মোট<b>৮,০০০</b><small>জনপ্রতি ৩৩৩.৩৩ (২৪ জন, সাকিব বাদে)</small></div>
+    </div>
+
+    <div class="wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ক্রম</th>
+            <th>নাম</th>
+            <th>জমা</th>
+            <th>মিল</th>
+            <th>মিল খরচ</th>
+            <th>খালা চার্জ</th>
+            <th>মোট খরচ</th>
+            <th>পাবে</th>
+            <th>দিবে</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>১</td>
+            <td class="n">সাবিন</td>
+            <td>২,০৭০</td>
+            <td>৪৭</td>
+            <td>২,১৮২.৪৯</td>
+            <td>৩৩৩.৩৩</td>
+            <td>২,৫১৫.৮২</td>
+            <td class="get">—</td>
+            <td class="pay">৪৪৫.৮২</td>
+          </tr>
+          <tr>
+            <td>২</td>
+            <td class="n">সিফাত</td>
+            <td>২,১২০</td>
+            <td>৬৪</td>
+            <td>২,৯৭১.৯০</td>
+            <td>৩৩৩.৩৩</td>
+            <td>৩,৩০৫.২৩</td>
+            <td class="get">—</td>
+            <td class="pay">১,১৮৫.২৩</td>
+          </tr>
+          <tr>
+            <td>৩</td>
+            <td class="n">সাগর</td>
+            <td>২,৭০০</td>
+            <td>৫৮</td>
+            <td>২,৬৯৩.২৮</td>
+            <td>৩৩৩.৩৩</td>
+            <td>৩,০২৬.৬১</td>
+            <td class="get">—</td>
+            <td class="pay">৩২৬.৬১</td>
+          </tr>
+          <tr>
+            <td>৪</td>
+            <td class="n">সামিউর</td>
+            <td>১,৫০০</td>
+            <td>৫৬.৫</td>
+            <td>২,৬২৩.৬৩</td>
+            <td>৩৩৩.৩৩</td>
+            <td>২,৯৫৬.৯৬</td>
+            <td class="get">—</td>
+            <td class="pay">১,৪৫৬.৯৬</td>
+          </tr>
+          <tr>
+            <td>৫</td>
+            <td class="n">কবির</td>
+            <td>১,৫০০</td>
+            <td>৬৫.৫</td>
+            <td>৩,০৪১.৫৫</td>
+            <td>৩৩৩.৩৩</td>
+            <td>৩,৩৭৪.৮৮</td>
+            <td class="get">—</td>
+            <td class="pay">১,৮৭৪.৮৮</td>
+          </tr>
+          <tr>
+            <td>৬</td>
+            <td class="n">অভি</td>
+            <td>১,৫১০</td>
+            <td>৫৩.৫</td>
+            <td>২,৪৮৪.৩২</td>
+            <td>৩৩৩.৩৩</td>
+            <td>২,৮১৭.৬৫</td>
+            <td class="get">—</td>
+            <td class="pay">১,৩০৭.৬৫</td>
+          </tr>
+          <tr>
+            <td>৭</td>
+            <td class="n">শাফি</td>
+            <td>২,০৪৮</td>
+            <td>৫২</td>
+            <td>২,৪১৪.৬৭</td>
+            <td>৩৩৩.৩৩</td>
+            <td>২,৭৪৮.০০</td>
+            <td class="get">—</td>
+            <td class="pay">৭০০.০০</td>
+          </tr>
+          <tr>
+            <td>৮</td>
+            <td class="n">জাবেদ</td>
+            <td>১,৩০০</td>
+            <td>৫৩.৫</td>
+            <td>২,৪৮৪.৩২</td>
+            <td>৩৩৩.৩৩</td>
+            <td>২,৮১৭.৬৫</td>
+            <td class="get">—</td>
+            <td class="pay">১,৫১৭.৬৫</td>
+          </tr>
+          <tr>
+            <td>৯</td>
+            <td class="n">সৈকত</td>
+            <td>১,৮০০</td>
+            <td>৪৭.৫</td>
+            <td>২,২০৫.৭০</td>
+            <td>৩৩৩.৩৩</td>
+            <td>২,৫৩৯.০৪</td>
+            <td class="get">—</td>
+            <td class="pay">৭৩৯.০৪</td>
+          </tr>
+          <tr>
+            <td>১০</td>
+            <td class="n">খাইরুল</td>
+            <td>২,২৭০</td>
+            <td>৬০</td>
+            <td>২,৭৮৬.১৫</td>
+            <td>৩৩৩.৩৩</td>
+            <td>৩,১১৯.৪৯</td>
+            <td class="get">—</td>
+            <td class="pay">৮৪৯.৪৯</td>
+          </tr>
+          <tr>
+            <td>১১</td>
+            <td class="n">ইছা</td>
+            <td>২,৫৪০</td>
+            <td>৬১.৫</td>
+            <td>২,৮৫৫.৮১</td>
+            <td>৩৩৩.৩৩</td>
+            <td>৩,১৮৯.১৪</td>
+            <td class="get">—</td>
+            <td class="pay">৬৪৯.১৪</td>
+          </tr>
+          <tr>
+            <td>১২</td>
+            <td class="n">আতিক</td>
+            <td>২,০০০</td>
+            <td>৫৫</td>
+            <td>২,৫৫৩.৯৭</td>
+            <td>৩৩৩.৩৩</td>
+            <td>২,৮৮৭.৩১</td>
+            <td class="get">—</td>
+            <td class="pay">৮৮৭.৩১</td>
+          </tr>
+          <tr>
+            <td>১৩</td>
+            <td class="n">সাইফুল</td>
+            <td>২,৭৬৭</td>
+            <td>৫৮</td>
+            <td>২,৬৯৩.২৮</td>
+            <td>৩৩৩.৩৩</td>
+            <td>৩,০২৬.৬১</td>
+            <td class="get">—</td>
+            <td class="pay">২৫৯.৬১</td>
+          </tr>
+          <tr>
+            <td>১৪</td>
+            <td class="n">মেহেদী</td>
+            <td>৩,০০০</td>
+            <td>৫৭.৫</td>
+            <td>২,৬৭০.০৬</td>
+            <td>৩৩৩.৩৩</td>
+            <td>৩,০০৩.৪০</td>
+            <td class="get">—</td>
+            <td class="pay">৩.৪০</td>
+          </tr>
+          <tr>
+            <td>১৫</td>
+            <td class="n">মহিদুল</td>
+            <td>৩,০০০</td>
+            <td>৬০</td>
+            <td>২,৭৮৬.১৫</td>
+            <td>৩৩৩.৩৩</td>
+            <td>৩,১১৯.৪৯</td>
+            <td class="get">—</td>
+            <td class="pay">১১৯.৪৯</td>
+          </tr>
+          <tr>
+            <td>১৬</td>
+            <td class="n">জুনায়েদ</td>
+            <td>১,৫০০</td>
+            <td>৪১.৫</td>
+            <td>১,৯২৭.০৯</td>
+            <td>৩৩৩.৩৩</td>
+            <td>২,২৬০.৪২</td>
+            <td class="get">—</td>
+            <td class="pay">৭৬০.৪২</td>
+          </tr>
+          <tr>
+            <td>১৭</td>
+            <td class="n">শান্ত</td>
+            <td>১,০০০</td>
+            <td>৪৮</td>
+            <td>২,২২৮.৯২</td>
+            <td>৩৩৩.৩৩</td>
+            <td>২,৫৬২.২৬</td>
+            <td class="get">—</td>
+            <td class="pay">১,৫৬২.২৬</td>
+          </tr>
+          <tr>
+            <td>১৮</td>
+            <td class="n">জাহাঙ্গীর</td>
+            <td>১,৮০০</td>
+            <td>৪৮.৫</td>
+            <td>২,২৫২.১৪</td>
+            <td>৩৩৩.৩৩</td>
+            <td>২,৫৮৫.৪৭</td>
+            <td class="get">—</td>
+            <td class="pay">৭৮৫.৪৭</td>
+          </tr>
+          <tr>
+            <td>১৯</td>
+            <td class="n">সিহাব</td>
+            <td>২,৫০০</td>
+            <td>৬৯.৫</td>
+            <td>৩,২২৭.২৯</td>
+            <td>৩৩৩.৩৩</td>
+            <td>৩,৫৬০.৬৩</td>
+            <td class="get">—</td>
+            <td class="pay">১,০৬০.৬৩</td>
+          </tr>
+          <tr>
+            <td>২০</td>
+            <td class="n">সাগর তৃতীয়</td>
+            <td>১,৬৯৮</td>
+            <td>২৪</td>
+            <td>১,১১৪.৪৬</td>
+            <td>৩৩৩.৩৩</td>
+            <td>১,৪৪৭.৭৯</td>
+            <td class="get">২৫০.২১</td>
+            <td class="pay">—</td>
+          </tr>
+          <tr>
+            <td>২১</td>
+            <td class="n">তোরাব</td>
+            <td>১,০০০</td>
+            <td>১৩</td>
+            <td>৬০৩.৬৭</td>
+            <td>৩৩৩.৩৩</td>
+            <td>৯৩৭.০০</td>
+            <td class="get">৬৩.০০</td>
+            <td class="pay">—</td>
+          </tr>
+          <tr>
+            <td>২২</td>
+            <td class="n">সোহান</td>
+            <td>০</td>
+            <td>৬২</td>
+            <td>২,৮৭৯.০২</td>
+            <td>৩৩৩.৩৩</td>
+            <td>৩,২১২.৩৬</td>
+            <td class="get">—</td>
+            <td class="pay">৩,২১২.৩৬</td>
+          </tr>
+          <tr>
+            <td>২৩</td>
+            <td class="n">মোন</td>
+            <td>১,০৫২</td>
+            <td>২৪.৫</td>
+            <td>১,১৩৭.৬৮</td>
+            <td>৩৩৩.৩৩</td>
+            <td>১,৪৭১.০১</td>
+            <td class="get">—</td>
+            <td class="pay">৪১৯.০১</td>
+          </tr>
+          <tr>
+            <td>২৪</td>
+            <td class="n">আদনান</td>
+            <td>২,০০০</td>
+            <td>৩০.৫</td>
+            <td>১,৪১৬.২৯</td>
+            <td>৩৩৩.৩৩</td>
+            <td>১,৭৪৯.৬৩</td>
+            <td class="get">২৫০.৩৭</td>
+            <td class="pay">—</td>
+          </tr>
+          <tr>
+            <td>২৫</td>
+            <td class="n">সাকিব</td>
+            <td>০</td>
+            <td>৯.৫</td>
+            <td>৪৪১.১৪</td>
+            <td>০.০০</td>
+            <td>৪৪১.১৪</td>
+            <td class="get">—</td>
+            <td class="pay">৪৪১.১৪</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2">মোট</td>
+            <td>৪৪,৬৭৫</td>
+            <td>১,২২০.৫</td>
+            <td>৫৬,৬৭৫.০০</td>
+            <td>৮,০০০.০০</td>
+            <td>৬৪,৬৭৫.০০</td>
+            <td class="get">৫৬৩.৫৮</td>
+            <td class="pay">২০,৫৬৩.৫৮</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <p class="note">মিল রেট = মোট খরচ ÷ মোট মিল · মোট খরচ = (মিল × রেট) + খালা চার্জ · জমা − মোট খরচ = পাবে/দিবে</p>
+
+    <p class="photo-line"><a href="gallery.html">📷 হিসাবের ছবিগুলো দেখুন</a></p>
+
+    <footer>
+      <div class="sign">
+        <div class="role">মিল ম্যানেজার</div>
+        <div class="info">
+          <div class="nm">শাফীউল মুজনিবীন</div>
+          <div>Room no: 201</div>
+          <div>Dept. of CSE</div>
+          <div>Kishoreganj University</div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
